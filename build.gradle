@@ -1,0 +1,103 @@
+buildscript {
+}
+
+plugins {
+    id 'java'
+    id 'maven-publish'
+    id 'groovy'
+    id 'idea'
+    id 'eclipse'
+    // id 'maven'
+    //id 'scala'
+    id 'java-library'
+    id 'jacoco'
+    id "org.springframework.boot" version "${springBootVersion}"
+    id "com.github.ben-manes.versions" version "${gradleVersionsPlugin}"
+}
+
+
+
+
+
+ext['groovy.version'] = '${gradleVersion}'
+
+apply from: "test.gradle"
+
+repositories {
+    mavenCentral()
+    flatDir {
+        dirs 'libs'
+    }
+}
+
+compileJava {
+    options.annotationProcessorPath = configurations.annotationProcessor
+    sourceCompatibility = JavaVersion.VERSION_11
+    targetCompatibility = JavaVersion.VERSION_11
+}
+
+wrapper {
+    gradleVersion="${gradleVersion}"
+}
+
+dependencies {
+//    //Kotlin
+//    implementation("org.jetbrains.kotlin:kotlin-stdlib:${kotlinVersion}")
+//    implementation("org.jetbrains.kotlin:kotlin-reflect:${kotlinVersion}")
+//    implementation("com.fasterxml.jackson.module:jackson-module-kotlin:${jacksonKotlinVersion}")
+
+    //Spring Boot
+    implementation("org.springframework.boot:spring-boot-starter-web:${springBootVersion}")
+    implementation("org.springframework.boot:spring-boot-starter-thymeleaf:${springBootVersion}")
+    implementation("org.springframework.boot:spring-boot-starter-actuator:${springBootVersion}")
+    implementation("org.springframework.boot:spring-boot-starter-data-jpa:${springBootVersion}")
+    implementation("org.springframework.boot:spring-boot-starter-validation:${springBootVersion}")
+
+    //Camel
+    //implementation("org.apache.camel:camel-spring-boot-starter:${apacheCamelVersion}")
+    implementation("org.apache.camel:camel-core:${apacheCamelVersion}")
+    //implementation("org.apache.camel:camel-netty:${apacheCamelVersion}")
+    //implementation("org.apache.camel:camel-netty4:${apacheCamelVersion}")
+
+    //activemq
+    // https://mvnrepository.com/artifact/org.apache.activemq/activemq-all
+    implementation("org.apache.activemq:activemq-all:$activemqVersion")
+
+    //groovy
+    implementation 'org.codehaus.groovy:groovy-all:3.0.8'
+
+    //excel
+    implementation("org.apache.poi:poi:${poiVersion}")
+    implementation("org.apache.poi:poi-ooxml:${poiVersion}")
+
+    //postgres
+    runtimeOnly("org.postgresql:postgresql:${postgresqlVersion}")
+
+    //h2 database
+    runtimeOnly("com.h2database:h2:${h2Version}")
+
+    //hibernate
+    implementation("org.hibernate:hibernate-core:${hibernateVersion}")
+    implementation("org.hibernate.javax.persistence:hibernate-jpa-2.1-api:${hibernateJpaVersion}")
+
+    //Validation
+     implementation("javax.validation:validation-api:${validationVersion}")
+
+    //Logging
+    implementation("ch.qos.logback:logback-classic:${logbackVersion}")
+    //logstash
+    runtimeOnly("net.logstash.logback:logstash-logback-encoder:${logstashLogbackVersion}")
+
+    compileOnly("org.projectlombok:lombok:${lombokVersion}")
+    annotationProcessor("org.projectlombok:lombok:${lombokVersion}")
+}
+
+tasks.withType(JavaCompile) {
+    options.encoding = 'UTF-8'
+}
+
+eclipse {
+    project {
+        name = 'example'
+    }
+}
