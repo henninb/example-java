@@ -15,10 +15,6 @@ plugins {
     id "com.github.ben-manes.versions" version "${gradleVersionsPlugin}"
 }
 
-
-
-
-
 ext['groovy.version'] = '${gradleVersion}'
 
 apply from: "test.gradle"
@@ -41,11 +37,6 @@ wrapper {
 }
 
 dependencies {
-//    //Kotlin
-//    implementation("org.jetbrains.kotlin:kotlin-stdlib:${kotlinVersion}")
-//    implementation("org.jetbrains.kotlin:kotlin-reflect:${kotlinVersion}")
-//    implementation("com.fasterxml.jackson.module:jackson-module-kotlin:${jacksonKotlinVersion}")
-
     //Spring Boot
     implementation("org.springframework.boot:spring-boot-starter-web:${springBootVersion}")
     implementation("org.springframework.boot:spring-boot-starter-thymeleaf:${springBootVersion}")
@@ -94,10 +85,4 @@ dependencies {
 
 tasks.withType(JavaCompile) {
     options.encoding = 'UTF-8'
-}
-
-eclipse {
-    project {
-        name = 'example'
-    }
 }
