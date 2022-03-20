@@ -5,10 +5,7 @@ spring:
     active: prod
 logging:
   config: classpath:logback-spring.xml
-camel:
-  springboot:
-    name: example
-  health.check.routes.enabled: false
+
 management:
   endpoint:
     health:

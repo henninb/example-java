@@ -52,7 +52,7 @@ dependencies {
 
     //activemq
     // https://mvnrepository.com/artifact/org.apache.activemq/activemq-all
-    implementation("org.apache.activemq:activemq-all:$activemqVersion")
+    //implementation("org.apache.activemq:activemq-all:$activemqVersion")
 
     //groovy
     implementation 'org.codehaus.groovy:groovy-all:3.0.8'
