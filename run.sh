@@ -25,7 +25,7 @@ fi
 if [ "$OS" = "Linux Mint" ] || [ "$OS" = "Ubuntu" ]; then
   HOST_IP=$(hostname -I | awk '{print $1}')
 elif [ "$OS" = "Arch Linux" ] || [ "$OS" = "ArcoLinux" ]; then
-  HOST_IP=$(hostname -i | awk '{print $1}')
+  HOST_IP=$(ip route get 1.2.3.4 | awk '{print $7}')
 elif [ "$OS" = "Fedora" ]; then
   HOST_IP=192.168.100.130
 elif [ "$OS" = "Darwin" ]; then
