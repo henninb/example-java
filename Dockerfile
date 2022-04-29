@@ -1,4 +1,4 @@
-FROM openjdk:8
+FROM openjdk:11.0.14
 
 ARG APP="example"
 ENV APP example
