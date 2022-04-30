@@ -86,3 +86,13 @@ dependencies {
 tasks.withType(JavaCompile) {
     options.encoding = 'UTF-8'
 }
+
+// tasks.withType<Jar> {
+//     manifest {
+//         attributes["Main-Class"] = "example.Application"
+//     }
+// }
+
+tasks.jar {
+    manifest.attributes["Main-Class"] = "example.Application"
+}
