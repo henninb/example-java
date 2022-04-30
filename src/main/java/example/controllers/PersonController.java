@@ -18,13 +18,9 @@ import java.util.Map;
 @Validated
 public class PersonController {
 
-    @RequestMapping(value = "/stuff", method = RequestMethod.GET)
-    public ResponseEntity<Integer> getStuff(
-
-            @RequestParam @Min(value = 1, message = "min")  Integer page
-    ) {
-
-        return ResponseEntity.ok(page);
+    @RequestMapping(value = "/person", method = RequestMethod.GET)
+    public ResponseEntity<String> getPerson() {
+        return ResponseEntity.ok("brian");
     }
 
     @ResponseStatus(HttpStatus.BAD_REQUEST)
