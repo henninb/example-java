@@ -19,6 +19,8 @@ ext['groovy.version'] = '${gradleVersion}'
 
 apply from: "test.gradle"
 
+//version = '1.0'
+
 repositories {
     mavenCentral()
     flatDir {
@@ -93,6 +95,51 @@ tasks.withType(JavaCompile) {
 //     }
 // }
 
-tasks.jar {
-    manifest.attributes["Main-Class"] = "example.Application"
-}
+// tasks.jar {
+//     manifest.attributes["Main-Class"] = "example.Application"
+// }
+
+// task fatJar(type: Jar) {
+// 	manifest {
+//         attributes 'Implementation-Title': 'Example',  
+//         	'Implementation-Version': version,
+//         	'Main-Class': 'example.Application'
+//     }
+//     baseName = project.name + '-all'
+//     from { configurations.implementation.collect { it.isDirectory() ? it : zipTree(it) } }
+//     with jar
+// }
+
+// task customFatJar(type: Jar) {
+//     manifest {
+//         attributes 'Main-Class': 'example.Application'
+//     }
+//     baseName = 'all-in-one-jar'
+//     from { configurations.compile.collect { it.isDirectory() ? it : zipTree(it) } }
+//     with jar
+// }
+
+// task fatJar(type: Jar) {
+//     manifest {
+//         attributes 'Main-Class': 'example.Application'
+//     }
+//     baseName = project.name + '-all'
+//     from { configurations.compile.collect { it.isDirectory() ? it : zipTree(it) } }
+//     with jar
+// }
+
+// task fatJar(type: Jar) {
+//     manifest.from jar.manifest
+//     classifier = 'all'
+//     from {
+//         // change here: runtimeClasspath instead of runtime
+//         configurations.runtimeClasspath.collect { it.isDirectory() ? it : zipTree(it) }
+//     } {
+//         exclude "META-INF/LICENSE*"
+//         exclude "META-INF/NOTICE*"
+//         exclude "META-INF/.SF"
+//         exclude "META-INF/.DSA"
+//         exclude "META-INF/*.RSA"
+//     }
+//     with jar
+// }
