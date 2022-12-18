@@ -12,6 +12,10 @@ USERNAME=henninb
 HOST_BASEDIR=$(pwd)
 GUEST_BASEDIR=/opt/${APP}
 
+export APP
+export USERNAME
+export TIMEZONE
+
 if [ "$ENV" = "prod" ]; then
   echo prod
 elif [ "$ENV" = "local" ]; then

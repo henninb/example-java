@@ -30,8 +30,8 @@ repositories {
 
 compileJava {
     options.annotationProcessorPath = configurations.annotationProcessor
-    sourceCompatibility = JavaVersion.VERSION_11
-    targetCompatibility = JavaVersion.VERSION_11
+    sourceCompatibility = JavaVersion.VERSION_17
+    targetCompatibility = JavaVersion.VERSION_17
 }
 
 wrapper {
@@ -56,8 +56,8 @@ dependencies {
     // https://mvnrepository.com/artifact/org.apache.activemq/activemq-all
     //implementation("org.apache.activemq:activemq-all:$activemqVersion")
 
-    //groovy
-    implementation 'org.codehaus.groovy:groovy-all:3.0.8'
+    //Groovy
+    implementation("org.apache.groovy:groovy:${groovyVersion}")
 
     //excel
     implementation("org.apache.poi:poi:${poiVersion}")
