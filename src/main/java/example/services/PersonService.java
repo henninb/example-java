@@ -11,22 +11,15 @@ public class PersonService {
 
     ObjectMapper objectMapper = new ObjectMapper();
 
-    @Scheduled(fixedDelay = 500000)
+    @Scheduled(fixedDelay = 5000)
     public void runMe() throws JsonProcessingException {
-
-        String payload = "{\n" +
-                "    \"first_name\": \"brian\",\n" +
-                "    \"middle_name\": \"middle\",\n" +
-                "    \"last_name\": \"henning\"\n" +
+        String payload = "{\"first_name\": \"brian\"," +
+                "    \"middle_name\": \"z\"," +
+                "    \"last_name\": \"henning\"" +
                 "}";
 
         Person person = objectMapper.readValue(payload, Person.class);
-//        Person person = new Person();
-//        person.setFirstName("brian");
-//        person.setMiddleName("z");
-//        person.setLastName("Henning");
-        System.out.println(person.getMiddleName());
-
+        System.out.println("middleName: " + person.getMiddleName());
         System.out.println(objectMapper.writeValueAsString(person));
     }
 }

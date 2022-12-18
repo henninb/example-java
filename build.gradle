@@ -67,11 +67,10 @@ dependencies {
     runtimeOnly("org.postgresql:postgresql:${postgresqlVersion}")
 
     //h2 database
-    runtimeOnly("com.h2database:h2:${h2Version}")
+    //runtimeOnly("com.h2database:h2:${h2Version}")
 
     //hibernate
     implementation("org.hibernate:hibernate-core:${hibernateVersion}")
-    implementation("org.hibernate.javax.persistence:hibernate-jpa-2.1-api:${hibernateJpaVersion}")
 
     //Validation
      implementation("javax.validation:validation-api:${validationVersion}")
