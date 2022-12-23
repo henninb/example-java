@@ -15,17 +15,12 @@ import lombok.*;
 @Builder
 @Entity
 @JsonIgnoreProperties(ignoreUnknown = true)
-public class Person {
-
+public class Todo {
     @Id
     @GeneratedValue
     @JsonProperty(value = "id")
     Long id;
-    @JsonProperty(value = "first_name")
-    String firstName;
-    @JsonProperty(value = "middle_name", access = JsonProperty.Access.WRITE_ONLY)
-    //@JsonProperty(value = "middle_name")
-    String middleName;
-    @JsonProperty(value =  "last_name")
-    String lastName;
+
+    @JsonProperty(value =  "text")
+    String text;
 }

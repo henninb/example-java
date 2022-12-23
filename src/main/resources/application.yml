@@ -37,13 +37,15 @@ spring:
   # = DATA SOURCE
   # ===============================
   datasource:
-    url: jdbc:postgresql://192.168.10.192:5432/finance_test_db
+    #url: jdbc:postgresql://192.168.10.192:5432/finance_test_db
     #url: jdbc:postgresql://localhost:5432/finance_test_db
+    url: jdbc:h2:mem:todo_db;LOCK_TIMEOUT=10000;DB_CLOSE_ON_EXIT=FALSE
     username: henninb
     password: monday1
-    driver-class-name: org.postgresql.Driver
+    #driver-class-name: org.postgresql.Driver
+    driver-class-name: org.h2.Driver
     hikari:
-      schema: public
+    #  schema: public
   sql:
     init:
       continue-on-error: false
@@ -57,8 +59,9 @@ spring:
     open-in-view: false
     generate-ddl: false
     hibernate:
-      ddl-auto: none
-    database-platform: org.hibernate.dialect.PostgreSQLDialect
+      ddl-auto: update
+    #database-platform: org.hibernate.dialect.PostgreSQLDialect
+    database-platform: org.hibernate.dialect.H2Dialect
   #    properties:
   #      hibernate:
   #        jdbc:

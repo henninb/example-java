@@ -64,10 +64,10 @@ dependencies {
     implementation("org.apache.poi:poi-ooxml:${poiVersion}")
 
     //postgres
-    runtimeOnly("org.postgresql:postgresql:${postgresqlVersion}")
+    //runtimeOnly("org.postgresql:postgresql:${postgresqlVersion}")
 
     //h2 database
-    //runtimeOnly("com.h2database:h2:${h2Version}")
+    runtimeOnly("com.h2database:h2:${h2Version}")
 
     //hibernate
     implementation("org.hibernate:hibernate-core:${hibernateVersion}")

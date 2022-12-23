@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>TODO List</title>
+</head>
+<body>
+<ul>
+    <li th:each="todo : ${todos}">
+        <span th:text="${todo.text}">entry</span>
+        <form action="/delete" method="post">
+            <input type="hidden" name="id" th:value="${todo.id}">
+            <button type="submit">delete</button>
+        </form>
+    </li>
+</ul>
+<form action="/add" method="post">
+    <label for="text">add text: </label><input id="text" name="text">
+    <button type="submit">add</button>
+</form>
+</body>
+</html>
