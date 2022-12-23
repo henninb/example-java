@@ -2,6 +2,7 @@ package example.controllers;
 
 import example.domain.Todo;
 import example.services.TodoService;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 
 import org.springframework.http.MediaType;
@@ -14,6 +15,7 @@ import org.springframework.web.servlet.ModelAndView;
 import java.util.List;
 
 @Controller
+@Slf4j
 public class TodoController {
     @Autowired
     protected TodoService todoService;
@@ -24,7 +26,6 @@ public class TodoController {
         ModelAndView mav = new ModelAndView("index");
         List<Todo> dataList = todoService.findAllTodos();
 
-        //mav.addObject("todos", mapOf("todos" to dataList))
         mav.addObject("todos", dataList);
         return mav;
     }
